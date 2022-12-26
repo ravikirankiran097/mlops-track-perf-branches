@@ -5,7 +5,7 @@ import urllib.request
 
 # Download the zipped dataset
 req = urllib.request.Request(url="https://storage.googleapis.com/trainingdata-mlops/data.zip",
-headers=headers={'User-Agent': 'Mozilla/5.0'}
+headers={'User-Agent': 'Mozilla/5.0'}
 handler = urllib.request.urlopen(req)
 #url = 'https://storage.googleapis.com/trainingdata-mlops/data.zip'
 #webpage = urlopen(req).read()
