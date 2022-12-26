@@ -9,6 +9,7 @@ wget.download(url, zip_name)
 
 # Unzip it and standardize the .csv filename
 with zipfile.ZipFile(zip_name, "r") as zip_ref:
+	zip_ref.printdir()
 	zip_ref.extractall()
 
 os.remove(zip_name)
