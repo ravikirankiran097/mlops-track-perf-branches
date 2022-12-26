@@ -5,12 +5,21 @@ import requests, zipfile
 from io import BytesIO
 
 # Download the zipped dataset
-url = 'https://storage.googleapis.com/trainingdata-mlops/data.zip'
-filename = url.split('/')[-1]
-req = requests.get(url)
+from urllib.request import Request, urlopen
+
+req = Request(
+    url='https://storage.googleapis.com/trainingdata-mlops/data.zip', 
+    headers={'User-Agent': 'Mozilla/5.0'}
+)
+webpage = urlopen(req).read()
+
+
+#url = 'https://storage.googleapis.com/trainingdata-mlops/data.zip'
+#filename = url.split('/')[-1]
+#req = requests.get(url)
 #webpage = urlopen(req).read()
-zip_name = "data.zip"
-wget.download(url, zip_name)
+#zip_name = "data.zip"
+#wget.download(url, zip_name)
 
 # Unzip it and standardize the .csv filename
 with zipfile.ZipFile(zip_name, "r") as zip_ref:
