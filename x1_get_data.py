@@ -1,16 +1,19 @@
+from zipfile import ZipFile
+from urllib.request import urlopen   
+import pandas as pd
 import os
-import wget
-import zipfile
 
-# Download the zipped dataset
-url = 'https://storage.googleapis.com/trainingdata-mlops/data.zip'
-zip_name = "data.zip"
-wget.download(url, zip_name)
+URL = 'https://storage.googleapis.com/trainingdata-mlops/data.zip'
 
-# Unzip it and standardize the .csv filename
-with zipfile.ZipFile(zip_name, "r") as zip_ref:
-	zip_ref.printdir()
-	zip_ref.extractall()
+# open and save the zip file onto computer
+url = urlopen(URL)
+output = open('data.zip', 'wb')    # note the flag:  "wb"        
+output.write(url.read())
+output.close()
 
-os.remove(zip_name)
+# read the zip file as a pandas dataframe
+df = pd.read_csv('data.zip')    zip files       
+
+# if keeping on disk the zip file is not wanted, then:
+os.remove(zipName)   # remove the copy of the zipfile on disk
 print('\nAll files are being extracted.')
