@@ -12,7 +12,7 @@ output.write(url.read())
 output.close()
 
 # read the zip file as a pandas dataframe
-df = pd.read_csv('data.zip')    zip files       
+df = pd.read_csv('data.zip')    #zip files       
 
 # if keeping on disk the zip file is not wanted, then:
 os.remove(zipName)   # remove the copy of the zipfile on disk
