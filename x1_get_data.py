@@ -4,6 +4,7 @@ import zipfile
 
 # Download the zipped dataset
 url = 'https://storage.googleapis.com/trainingdata-mlops/data.zip'
+req = Request(url, headers={'User-Agent': 'Mozilla/5.0'})
 zip_name = "data.zip"
 wget.download(url, zip_name)
 
