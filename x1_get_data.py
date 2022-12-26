@@ -9,7 +9,6 @@ url = 'https://storage.googleapis.com/trainingdata-mlops/data.zip'
 filename = url.split('/')[-1]
 req = requests.get(url)
 #webpage = urlopen(req).read()
-
 zip_name = "data.zip"
 wget.download(url, zip_name)
 
