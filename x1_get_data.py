@@ -1,13 +1,13 @@
 import os
 import wget
 import zipfile
-import urllib.request
+import requests, zipfile
+from io import BytesIO
 
 # Download the zipped dataset
-req = urllib.request.Request(url="https://storage.googleapis.com/trainingdata-mlops/data.zip",
-headers={'User-Agent': 'Mozilla/5.0'}
-handler = urllib.request.urlopen(req)
-#url = 'https://storage.googleapis.com/trainingdata-mlops/data.zip'
+url = 'https://storage.googleapis.com/trainingdata-mlops/data.zip'
+filename = url.split('/')[-1]
+req = requests.get(url)
 #webpage = urlopen(req).read()
 
 zip_name = "data.zip"
